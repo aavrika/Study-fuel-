@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState, useEffect, useMemo } from 'react';
 import { Customer, AttendanceStore, DayAttendance } from './types';
 import {
@@ -178,8 +180,8 @@ export default function App() {
 
   // Toggle pause / active
   const handleToggleCustomerStatus = (cust: Customer) => {
-    const newStatus = cust.status === 'active' ? 'paused' : 'active';
-    const updated = customers.map((c) => (c.id === cust.id ? { ...c, status: newStatus } : c));
+    const newStatus: Customer['status'] = cust.status === 'active' ? 'paused' : 'active';
+    const updated: Customer[] = customers.map((c) => (c.id === cust.id ? { ...c, status: newStatus } : c));
     setCustomers(updated);
     saveStoredCustomers(updated);
     showToast(`${cust.name} is now ${newStatus === 'active' ? 'Active' : 'Paused'}!`);

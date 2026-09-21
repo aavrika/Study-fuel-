@@ -1,4 +1,4 @@
-import { Component, ReactNode } from 'react';
+import React, { Component, ErrorInfo, ReactNode } from 'react';
 import { clearAllData } from '../lib/storage';
 
 interface Props {
@@ -10,8 +10,8 @@ interface State {
   error: Error | null;
 }
 
-export class ErrorBoundary extends (Component as any) {
-  public state: State = {
+export class ErrorBoundary extends Component<Props, State> {
+  public override state: State = {
     hasError: false,
     error: null
   };
@@ -20,7 +20,7 @@ export class ErrorBoundary extends (Component as any) {
     return { hasError: true, error };
   }
 
-  public componentDidCatch(error: Error, errorInfo: any) {
+  public override componentDidCatch(error: Error, errorInfo: ErrorInfo) {
     console.error('Uncaught error caught by ErrorBoundary:', error, errorInfo);
   }
 
@@ -38,7 +38,7 @@ export class ErrorBoundary extends (Component as any) {
     window.location.reload();
   };
 
-  public render(): ReactNode {
+  public override render(): ReactNode {
     if (this.state.hasError) {
       return (
         <div className="min-h-screen bg-stone-100 flex items-center justify-center p-4 font-sans text-stone-800">

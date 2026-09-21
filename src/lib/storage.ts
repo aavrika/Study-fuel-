@@ -17,6 +17,7 @@ const STORAGE_DEMO_PURGED_FLAG = 'studyfuel_demo_purged_flag_v1';
  */
 function purgeLegacyDemoDataIfNeeded(): void {
   try {
+    if (typeof window === 'undefined' || typeof localStorage === 'undefined') return;
     if (!localStorage.getItem(STORAGE_DEMO_PURGED_FLAG)) {
       localStorage.removeItem('studyfuel_customers_v2');
       localStorage.removeItem('studyfuel_attendance_v2');

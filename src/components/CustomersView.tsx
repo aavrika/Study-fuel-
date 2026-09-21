@@ -45,12 +45,14 @@ interface CustomersViewProps {
   onOpenAddCustomer: () => void;
   onOpenEditCustomer: (customer: Customer) => void;
   onToggleCustomerStatus: (customer: Customer) => void;
-  onDeleteCustomer: (customer: Customer) => void;
+  onDeleteCustomer?: (customer: Customer) => void;
   onOpenImportIAS?: () => void;
   onViewInvoice: (customer: Customer, yearMonth: string) => void;
   onOpenQuickMessage: (
     customer: Customer,
-    template?: MessageTemplateType
+    template?: MessageTemplateType,
+    slot?: 'lunch' | 'dinner',
+    dateStr?: string
   ) => void;
   onLoginAsCustomer?: (customer: Customer) => void;
   onUpdateDayAttendance?: (
