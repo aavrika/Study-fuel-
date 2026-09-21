@@ -1,0 +1,6 @@
+{
+  "name": "Study Fuel - Tiffin Service & Smart Manager",
+  "description": "Study Fuel tiffin service management platform with bulk building drop points, multi-resident WhatsApp messaging, daily attendance calendars, and real working persistence.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
